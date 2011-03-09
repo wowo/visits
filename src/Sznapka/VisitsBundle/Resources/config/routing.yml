@@ -1,0 +1,7 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: VisitsBundle:Main:welcome }
+
+Visits:
+    pattern:  /Main
+    defaults: { _controller: VisitsBundle:Main:index }

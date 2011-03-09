@@ -1,0 +1,24 @@
+[submodule "vendor/symfony"]
+	path = vendor/symfony
+	url = git://github.com/symfony/symfony.git
+[submodule "vendor/zend-log/Zend/Log"]
+	path = vendor/zend-log/Zend/Log
+	url = git://github.com/symfony/zend-log.git
+[submodule "vendor/swiftmailer"]
+	path = vendor/swiftmailer
+	url = git://github.com/swiftmailer/swiftmailer.git
+[submodule "vendor/twig"]
+	path = vendor/twig
+	url = git://github.com/fabpot/Twig.git
+[submodule "vendor/twig-extensions"]
+	path = vendor/twig-extensions
+	url = git://github.com/fabpot/Twig-extensions.git
+[submodule "vendor/doctrine-common"]
+	path = vendor/doctrine-common
+	url = git://github.com/doctrine/common.git
+[submodule "vendor/doctrine-mongodb"]
+	path = vendor/doctrine-mongodb
+	url = git://github.com/doctrine/mongodb.git
+[submodule "vendor/doctrine-mongodb-odm"]
+	path = vendor/doctrine-mongodb-odm
+	url = git://github.com/doctrine/mongodb-odm.git

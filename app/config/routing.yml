@@ -1,0 +1,3 @@
+
+Visits:
+    resource: "@VisitsBundle/Resources/config/routing.yml"
