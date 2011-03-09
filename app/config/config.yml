@@ -1,23 +1,34 @@
 framework:
-    charset:       UTF-8
-    error_handler: null
-    csrf_protection:
-        enabled: true
-        secret: xxxxxxxxxx
-    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
-    validation:    { enabled: true, annotations: true }
-    templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
-    session:
-        default_locale: en
-        lifetime:       3600
-        auto_start:     true
-        name:           symfony
+  charset:       UTF-8
+  error_handler: null
+  csrf_protection:
+    enabled: true
+    secret: xxxxxxxxxx
+  router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+  validation:    { enabled: true, annotations: true }
+  templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
+  session:
+    default_locale: en
+    lifetime:       3600
+    auto_start:     true
+    name:           symfony
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+  debug:            %kernel.debug%
+  strict_variables: %kernel.debug%
 
+doctrine_mongo_db:
+  auto_generate_hydrator_classes: true
+  auto_generate_proxy_classes: true
+  mappings:
+    VisitsBundle: {type: annotation}
+  default_database: visits
+  connections:
+    default:
+      server: "mongodb://visits:asdf@flame.mongohq.com:27030/visits"
+      options:
+        connect: true
 
 
 
