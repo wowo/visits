@@ -48,7 +48,7 @@ class MainController extends Controller
     $visit->ip        = $this->get("request")->server->get("REMOTE_ADDR");
     $visit->host      = gethostbyaddr($visit->ip);
 
-    $dm = $this->get('doctrine.odm.mongodb.document_manager');
+    $dm = $this->get('doctrine.odm.mongodb.app_document_manager');
     $dm->persist($visit);
     $dm->flush();
 
@@ -57,6 +57,20 @@ class MainController extends Controller
     return $response;
   }
 
+  public function statsAction($day)
+  {
+    $docs = $this->get("odm.repository.visit")->getVisitsForDay(new \DateTime($day));
+    return $this->render("VisitsBundle:Main:stats.html.twig", array("day" => $day, "docs" => $docs));
+  }
+
+  /**
+   * get fake image 
+   *  
+   * @author Wojciech Sznapka <wojciech.sznapka@xsolve.pl> 
+   * @access protected
+   * 
+   * @return void
+   */
   protected function getFakeImage()
   {
     $im = imagecreatetruecolor(1, 1); 

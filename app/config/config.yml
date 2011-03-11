@@ -1,3 +1,4 @@
+# Framework Configuration
 framework:
   charset:       UTF-8
   error_handler: null
@@ -13,19 +14,32 @@ framework:
     auto_start:     true
     name:           symfony
 
+# Services
+services:
+  odm.repository.visit:
+    public: true
+    class: Doctrine\OdM\MongoDB\DocumentRepository
+    factory_service: doctrine.odm.mongodb.app_document_manager
+    factory_method: getRepository
+    arguments:
+      - VisitsBundle:Visit
+
 # Twig Configuration
 twig:
   debug:            %kernel.debug%
   strict_variables: %kernel.debug%
 
+# Doctrine ODM Configuration
 doctrine_mongo_db:
   auto_generate_hydrator_classes: true
   auto_generate_proxy_classes: true
-  mappings:
-    VisitsBundle: {type: annotation}
   default_database: visits
+  document_managers:
+    app:
+      mappings:
+        VisitsBundle: {type: annotation}
   connections:
-    default:
+    app:
       server: "mongodb://visits:asdf@flame.mongohq.com:27030/visits"
       options:
         connect: true

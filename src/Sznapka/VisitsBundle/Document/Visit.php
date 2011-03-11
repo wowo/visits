@@ -4,8 +4,8 @@ namespace Sznapka\VisitsBundle\Document;
 /**
  * Visit 
  * 
- * @mongodb:Document(collection="visits")
-
+ * @mongodb:Document(collection="visits",repositoryClass="Sznapka\VisitsBundle\Repository\VisitRepository")
+ *
  * @author Wojciech Sznapka <wojciech.sznapka@xsolve.pl> 
  */
 class Visit

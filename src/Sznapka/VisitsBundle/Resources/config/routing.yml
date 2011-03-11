@@ -1,7 +1,11 @@
 homepage:
-    pattern:  /
-    defaults: {_controller: VisitsBundle:Main:welcome}
+  pattern:  /
+  defaults: {_controller: VisitsBundle:Main:welcome}
 
 register:
-    pattern:  /register/{source}
-    defaults: {_controller: VisitsBundle:Main:register}
+  pattern:  /register/{source}
+  defaults: {_controller: VisitsBundle:Main:register}
+
+stats:
+  pattern:  /stats/{day}
+  defaults: {_controller: VisitsBundle:Main:stats, day: now}

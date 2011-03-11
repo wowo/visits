@@ -1,15 +1,15 @@
 imports:
-    - { resource: config.yml }
+  - { resource: config.yml }
 
 framework:
-    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
-    profiler: { only_exceptions: false }
+  router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
+  profiler: { only_exceptions: false }
 
 web_profiler:
-    toolbar: true
-    intercept_redirects: true
+  toolbar: true
+  intercept_redirects: true
 
 zend:
-    logger:
-        priority: debug
-        path:     %kernel.logs_dir%/%kernel.environment%.log
+  logger:
+    priority: debug
+    path:     %kernel.logs_dir%/%kernel.environment%.log

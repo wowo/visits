@@ -1,0 +1,25 @@
+{% extends "VisitsBundle::layout.html.twig" %}
+{% block header %}
+  <h1>Podsumowanie odwiedzin za <em>{{ day|date("Y-m-d") }}</em></h1>
+{% endblock %}
+
+{% block content%}
+{% for source,visits in docs %}
+  <h2>{{ source }} (total: {{ visits|length }})</h2>
+  <ul>
+    {% for visit in visits %}
+      <li>
+        <h3>{{ visit.date|date("Y-m-d H:i") }}</h3>
+        <dl>
+          <dt>ip</dt>
+          <dd>{{ visit.ip }} <a href="http://{{ visit.host }}">{{ visit.host }}</a></dd>
+          <dt>user agent</dt>
+          <dd>{{ visit.userAgent }}</dd>
+          <dt>referer</dt>
+          <dd>{{ visit.referer|default("-") }}</dd>
+        </dl>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+{% endblock %}
