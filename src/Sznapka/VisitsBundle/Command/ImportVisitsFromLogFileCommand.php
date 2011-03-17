@@ -33,7 +33,7 @@ class ImportVisitsFromLogFileCommand extends Command
       $this
           ->setName("visits:import-visit-from-log-file")
           ->setDescription("Imports visits from (old) log file")
-          ->addOption("path", "p", InputOption::VALUE_REQUIRED, "path to log file");
+          ->addArgument("path", InputArgument::REQUIRED, "path to log file");
   }
 
   /**
@@ -46,12 +46,12 @@ class ImportVisitsFromLogFileCommand extends Command
    */
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $path = $input->getOption("path");
+    $path = $input->getArgument("path");
     if (!file_exists($path)) {
       throw new \RuntimeException(sprintf("Path %s doesn't exists", $path));
     }
     $output->writeLn(sprintf("Importing visits from old log file located in <info>%s</info>", $path));
-    $dm = $this->container->get('doctrine.odm.mongodb.document_manager');
+    $dm = $this->container->get('doctrine.odm.mongodb.app_document_manager');
 
     $entries = file($path);
     $entries = array_map("trim", $entries);
